@@ -1,0 +1,81 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Calendar App</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body{ padding-top:80px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <a href="/auth/logout" class="btn btn-success btn-sm" style="float:right">Logout</a>
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3><span class="fa fa-user"></span> Profile</h3>
+
+                <% if (user.local.username) { %>
+                    <p>
+                        <strong>UserName</strong>: <%= user.local.username %><br>
+                        <strong>id</strong>: <%= user._id %><br>
+                    </p>
+
+                    <a href="/auth/unlink/local" class="btn btn-danger">Unlink</a>
+                <% } else { %>
+                    <a href="/auth/connect/local" class="btn btn-primary">Create Local profile</a>
+                <% } %>
+
+            </div>
+        </div>
+
+
+        <!-- GOOGLE INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google+ Profile</h3>
+
+                <% if (user.google.accessToken) { %>
+                    <p>
+                        <strong>name</strong>: <%= user.google.name %></br>
+                        <strong>email</strong>: <%= user.google.email %><br>
+                        <strong>id</strong>: <%= user.google.id %><br>
+                        <strong>token</strong>: <%= user.google.accessToken %><br>
+                        
+                    </p>
+
+                    <a href="/auth/unlink/google" class="btn btn-danger">Unlink</a>
+                <% } else { %>
+                <p>Please connect your google account to access Google+ profile.</p>
+                    <a href="/auth/connect/google" class="btn btn-primary">Connect Google</a>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+
+    <div class = "row">
+    <div class="col-sm-6 well well-sm" >
+
+    <% if (user.google.accessToken) { %>
+                <a href="/homepage" class="btn btn-success"><span class="fa fa-user"></span> Open calendar application</a>
+                <% } else { %>
+                <p>Please connect your google account to access the application.</p>
+                    <a href="/auth/connect/google" class="btn btn-primary">Connect Google</a>
+                <% } %>
+    </div>
+
+    </div>
+
+</div>
+</body>
+</html>

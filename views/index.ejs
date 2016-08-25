@@ -1,0 +1,44 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Calendar App</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+<div class="container">
+
+	<div class="jumbotron text-center">
+		<h2><i class="fa fa-spinner fa-spin"></i>Calendar Booker</h2>
+
+		<a href="/auth/login" class="btn btn-default"><span class="fa fa-user"></span>Login</a>
+		<a href="/auth/signup" class="btn btn-default"><span class="fa fa-user"></span>Signup</a>
+		<a href="/auth/connect/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+	</div>
+	
+		<div class="jumbotron" style="font-size: 100%;">
+		<h3>How to use this app -</h3>
+		<p> This app is for booking google calendar slots for teacher/student or interviewer/interviewee. </p>
+		
+		<ul>
+  <li>Signup with your google account or create local account and give google authourizations for accessing the application.</li>
+  <li>Go to your calendar and open 1 hr slots for booking. </li>
+  <li>Generate sharable link to book slots and share it with the students/.interviewees.</li>
+  <li>Once slot is booked by the student/interviewee , it can't be booked again by anyone.</li>
+  <li>Google authourization is required for accessing and booking the slots.</li>
+</ul>
+	<h3> Technologies used - </h3>
+	<ul>
+		<li>Frontend - Bootstrap, Backbone.js(calendar page)</li>
+		<li>Backend - Node.js</li>
+		
+	</ul>
+	</div>
+
+</div>
+</body>
+</html>
